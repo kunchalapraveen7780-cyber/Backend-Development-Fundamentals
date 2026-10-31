@@ -9,7 +9,7 @@
 
 ## Live Link
 
-Not deployed yet. Local server tested successfully at `http://localhost:3000`.
+https://backend-lab-01-cgdb.onrender.com
 
 ## Objective
 
