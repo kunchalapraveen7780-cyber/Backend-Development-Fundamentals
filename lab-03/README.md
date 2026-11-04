@@ -45,14 +45,14 @@ lab-03/
 ├── books.db
 ├── package.json
 ├── package-lock.json
+├── .gitignore
 └── README.md
 ```
 
 ## Database Structure
 
-Database Name: `books.db`
-
-Table Name: `book`
+- **Database Name:** `books.db`
+- **Table Name:** `book`
 
 | Column | Data Type | Description |
 |---|---|---|
@@ -66,37 +66,38 @@ The database contains 10 initial book records.
 
 ## API Endpoints
 
-Base URL: `http://localhost:3000`
+### Base URLs
+
+**Local Base URL:**
+`http://localhost:3000`
+
+**Production Base URL:**
+`https://lab-03-rest-api.onrender.com`
 
 ### 1. GET – Retrieve All Books
 
-**Endpoint:** `/books`
-
-Retrieves all books from the database.
+- **Endpoint:** `GET /books`
+- Retrieves all books from the database.
 
 ### 2. GET – Retrieve Book by ID
 
-**Endpoint:** `/books/:bookId`
-
-Retrieves a specific book using its ID.
+- **Endpoint:** `GET /books/:bookId`
+- Retrieves a specific book using its ID.
 
 ### 3. POST – Add a New Book
 
-**Endpoint:** `/books`
-
-Adds a new book to the database using JSON request data.
+- **Endpoint:** `POST /books`
+- Adds a new book to the database using JSON request data.
 
 ### 4. PUT – Update a Book
 
-**Endpoint:** `/books/:bookId`
-
-Updates the details of an existing book.
+- **Endpoint:** `PUT /books/:bookId`
+- Updates the details of an existing book.
 
 ### 5. DELETE – Delete a Book
 
-**Endpoint:** `/books/:bookId`
-
-Deletes a book using its ID.
+- **Endpoint:** `DELETE /books/:bookId`
+- Deletes a book using its ID.
 
 ## Advanced API Features
 
@@ -142,7 +143,17 @@ The API validates:
 - Non-negative integer offset.
 - Numeric minimum and maximum prices.
 - Minimum price must not exceed maximum price.
+- Required title, author, and numeric price when adding or updating a book.
 - Book existence before update or delete operations.
+
+## HTTP Status Codes
+
+| Status Code | Description |
+|---|---|
+| 200 OK | Successful GET, PUT, and DELETE operations |
+| 201 Created | Book successfully added |
+| 400 Bad Request | Invalid request or validation failure |
+| 404 Not Found | Requested book does not exist |
 
 ## Security and Database Handling
 
@@ -150,6 +161,17 @@ The API validates:
 - Uses async/await for database operations.
 - Uses Express JSON middleware to handle request bodies.
 - Validates query parameters before executing database queries.
+
+## Debugging
+
+The following common backend issues were studied and addressed:
+
+- EADDRINUSE port conflict.
+- Incorrect module import path.
+- Database table-name mismatch.
+- Missing `await` in asynchronous database operations.
+
+These exercises helped improve debugging and database-handling skills.
 
 ## Screenshots and Testing
 
@@ -220,6 +242,19 @@ npm run dev
 
 `http://localhost:3000/books`
 
+## Live Deployment
+
+- **Platform:** Render
+- **Deployment Status:** Successfully deployed.
+
+**Live API URL:**
+
+https://lab-03-rest-api.onrender.com
+
+**Test Endpoint:**
+
+https://lab-03-rest-api.onrender.com/books
+
 ## Conclusion
 
-Successfully developed and tested an advanced REST API using Node.js, Express.js, and SQLite. Implemented CRUD operations, searching, sorting, pagination, price filtering, and request validation. Verified API responses using Postman and confirmed the database records using SQLite.
+Successfully developed and tested an advanced REST API using Node.js, Express.js, and SQLite. Implemented CRUD operations, searching, sorting, pagination, price filtering, and request validation. Verified API responses using Postman and confirmed the database records using SQLite. The application was also successfully deployed on Render and made publicly accessible.
